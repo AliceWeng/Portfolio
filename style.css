@@ -1,5 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 * {
     margin: 0;
     border: 0;
     box-sizing: border-box;
+}
+:root {
+    --sun: #FFDB7B;
+    --sky: #75bcff;
+    --clouds: aliceblue;
+}
+.night {
+    --sun: #c5c5c5;
+    --sky: #061a50;
+    --clouds: #516eac;
+}
+nav {
+    height: 9em;
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+    justify-content: right;
+    background: var(--sky);
+    position: relative;
+    transition: 500ms;
+}
+.sun {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background: var(--sun);
+    box-shadow: 0 0 1.2em .12em var(--sun);
+    position: absolute;
+    left: -3em;
+    top: -3em;
+    cursor: pointer;
+    transition: 500ms;
+}
+main {
+    height: 100vh;
+    background-image: linear-gradient(#4583d3,#2e5691,#213363,#0d1930);
 }
