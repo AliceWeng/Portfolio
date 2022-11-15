@@ -7,7 +7,7 @@
 }
 :root {
     --sun: #FFDB7B;
-    --sky: #75BCFF;
+    --sky: #74c0ff;
     --clouds: aliceblue;
 }
 .night {
@@ -56,10 +56,32 @@ main {
     aspect-ratio: 1 / 1;
     color: lightgrey;
     border-radius: 50%;
-    border: 2px solid #3c5a99;
-    box-shadow: inset 0 0 5em #3c5a99,
-                1em 1em 2em #111f4480;
+    border: 2px solid rgba(255, 255, 255, .5);
+    box-shadow: inset 0 0 5em #3c5a99;
+    position: relative;
     transition: 500ms;
+}
+.bubble::before, .bubble::after {
+    content: "";
+    position: absolute;
+    background: white;
+    box-shadow: 0 0 1em;
+    border-radius: 50%;
+    opacity: .5;
+}
+.bubble::before {
+    height: 2em;
+    width: 5em;
+    top: 3em;
+    left: 5.5em;
+    transform: rotate(-33deg);
+}
+.bubble::after {
+    height: 1em;
+    width: 2em;
+    top: 1.3em;
+    left: 10.8em;
+    transform: rotate(-20deg);
 }
 h1 {
     font-size: 40px;
