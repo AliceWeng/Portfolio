@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 * {
     margin: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: "Calibre", sans-serif;
 }
 :root {
     --sun: #FFDB7B;
-    --sky: #75bcff;
+    --sky: #75BCFF;
     --clouds: aliceblue;
 }
 .night {
@@ -15,13 +16,12 @@
     --clouds: #516eac;
 }
 nav {
+    width: 100%;
     height: 9em;
-    display: flex;
-    text-align: center;
-    align-items: flex-end;
-    justify-content: right;
     background: var(--sky);
-    position: relative;
+    box-shadow: 0 0 5em var(--sky);
+    position: absolute;
+    z-index: 1;
     transition: 500ms;
 }
 .sun {
@@ -37,6 +37,38 @@ nav {
     transition: 500ms;
 }
 main {
-    height: 100vh;
-    background-image: linear-gradient(#4583d3,#2e5691,#213363,#0d1930);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    padding-top: 11em;
+    min-height: 100vh;
+    background-image: linear-gradient(#5da3ff, #4583d3,#2e5691,#213363,#0d1930);
+}
+.bubble {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    width: 500px;
+    aspect-ratio: 1 / 1;
+    color: lightgrey;
+    border-radius: 50%;
+    border: 2px solid #3c5a99;
+    box-shadow: inset 0 0 5em #3c5a99,
+                1em 1em 2em #111f4480;
+    transition: 500ms;
+}
+h1 {
+    font-size: 40px;
+    margin-bottom: .5em;
+}
+p {
+    font-size: 20px;
+}
+h1, p {
+    color: #dddddd;
+    text-shadow: 1px 1px black;
 }
