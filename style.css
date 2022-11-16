@@ -1,28 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 * {
     margin: 0;
     border: 0;
     box-sizing: border-box;
-    font-family: "Calibre", sans-serif;
 }
 :root {
     --sun: #FFDB7B;
     --sky: #74c0ff;
-    --clouds: aliceblue;
+    --cloud: aliceblue;
+    --opacity: rgba(116, 192, 255, 0.5);
 }
 .night {
     --sun: #c5c5c5;
     --sky: #061a50;
-    --clouds: #516eac;
+    --cloud: #325399;
+    --opacity: rgba(6, 26, 80, 0.5);
+}
+body {
+    text-align: center;
 }
 nav {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 0;
     width: 100%;
     height: 9em;
+    position: absolute;
     background: var(--sky);
     box-shadow: 0 0 5em var(--sky);
-    position: absolute;
-    z-index: 1;
-    transition: 500ms;
 }
 .sun {
     width: 10em;
@@ -34,7 +40,44 @@ nav {
     left: -3em;
     top: -3em;
     cursor: pointer;
-    transition: 500ms;
+}
+.cloud {
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    color: var(--sky);
+    position: relative;
+    margin: 1em;
+    border-radius: 2em;
+    padding: 1em 1.5em;
+    background: var(--cloud);
+    cursor: pointer;
+}
+.cloud::before, .cloud::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    background: var(--cloud);
+}
+.cloud::before {
+    height: 2.5em;
+	width: 2.5em;
+	top: -1em;
+    left: 1.5em;
+}
+.cloud::after {
+    height: 3.5em;
+    width: 3.5em;
+    top: -1.5em;
+    right: 1.5em;
+}
+.cloud:hover, .cloud:hover::before, .cloud:hover::after {
+    box-shadow: 0 0 .5em var(--cloud);
+    color: var(--opacity);
+}
+nav, .sun, .cloud, .cloud::before, .cloud::after {
+    transition: 300ms;
 }
 main {
     display: flex;
@@ -47,19 +90,18 @@ main {
 }
 .bubble {
     display: flex;
-    text-align: center;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
-    width: 500px;
-    aspect-ratio: 1 / 1;
-    color: lightgrey;
-    border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, .5);
     box-shadow: inset 0 0 5em #3c5a99;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    color: lightgrey;
     position: relative;
-    transition: 500ms;
+    width: 500px;
+    padding: 2em;
+    cursor: pointer;
 }
 .bubble::before, .bubble::after {
     content: "";
@@ -72,20 +114,21 @@ main {
 .bubble::before {
     height: 2em;
     width: 5em;
-    top: 3em;
-    left: 5.5em;
-    transform: rotate(-33deg);
+    top: 4em;
+    left: 5em;
+    transform: rotate(-40deg);
 }
 .bubble::after {
     height: 1em;
     width: 2em;
-    top: 1.3em;
-    left: 10.8em;
-    transform: rotate(-20deg);
+    top: 2em;
+    left: 10em;
+    transform: rotate(-25deg);
 }
 h1 {
     font-size: 40px;
     margin-bottom: .5em;
+    font-weight: lighter;
 }
 p {
     font-size: 20px;
@@ -93,4 +136,18 @@ p {
 h1, p {
     color: #dddddd;
     text-shadow: 1px 1px black;
+    font-family: "Calibre", sans-serif;
+}
+@media (max-width: 499px) {
+    h1 {
+        font-size: 8vw;
+    }
+    p {
+        font-size: 4vw;
+    }
+}
+@media (max-width: 580px) {
+    .bubble::before, .bubble::after {
+        opacity: 0;
+    }
 }
