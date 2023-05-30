@@ -1,5 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+#day {
+
+}
+#night {
+  --sky: #000229;
+  --orb: #c5c5c5;
+}
+::-webkit-scrollbar {
+  width: .5em;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background: rgba(240, 248, 255, 0.5);
+}
+body {
+  overflow: overlay;
+}
+h1 {
+  color: #D3F2FF;
+}
+.sky {
+  z-index: -2;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#000229, #001B8A, #0e52d1);
+  transition: 300ms;
+}
+.orb {
+  z-index: -1;
+  width: 500px;
+  height: 500px;
+  bottom: -250px;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 1.2em .12em rgba(255, 255, 255, 0.7);
+  transition: 300ms;
+}
+@media (max-width: 500px) {
+  .orb {
+    width: 80vw;
+    height: 80vw;
+    bottom: -40vw;
+  }
+}
+.sea {
+  min-height: 100vh;
+  background: linear-gradient(#5da3ff, #4583d3,#2e5691,#213363,#0d1930);
 }

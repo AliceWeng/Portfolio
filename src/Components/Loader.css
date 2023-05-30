@@ -1,0 +1,49 @@
+.loader {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    overflow: hidden;
+    background: black;
+    align-items: center;
+    justify-content: center;
+  }
+  .star {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+  .star div {
+    opacity: 0;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border-radius: 50%;
+    background: aliceblue;
+    box-shadow: 0 0 1em aliceblue;
+  }
+  .star div:nth-child(1) {
+    bottom: 0;
+    left: 15px;
+  }
+  .star div:nth-child(2) {
+    left: 0;
+    top: 35px;
+  }
+  .star div:nth-child(3) {
+    left: 45px;
+  }
+  .star div:nth-child(4) {
+    right: 0;
+    top: 35px;
+  }
+  .star div:nth-child(5) {
+    bottom: 0;
+    right: 15px;
+  }
+  svg {
+    position: absolute;
+  }
