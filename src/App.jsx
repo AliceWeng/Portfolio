@@ -1,18 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Sky from "./Components/Sky";
-import Sea from "./Components/Sea";
 import Loader from "./Components/Loader";
+import Home from "./Components/Home";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-      <>
-        <Loader/>
-        <div id="night">
-        <Sky/>
-        <Sea/>
-        </div>
-      </>
+      <BrowserRouter>
+        {loading && <Loader setLoading={setLoading}/>}
+        <Home/> 
+      </BrowserRouter>
   )
 }
 

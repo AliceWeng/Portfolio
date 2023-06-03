@@ -1,59 +1,152 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
 }
-#day {
-
-}
-#night {
-  --sky: #000229;
-  --orb: #c5c5c5;
+:root {
+  --blue: #235aff;
+  --one: #111111;
+  --two: #222222;
+  --three: #333333;
+  --contrast: aliceblue;
+  --aliceblue50: rgba(240, 248, 255, 0.25);
 }
 ::-webkit-scrollbar {
-  width: .5em;
+  width: 1em;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 1em;
-  background: rgba(240, 248, 255, 0.5);
+  background: var(--aliceblue50);
+  border: 5px solid var(--one);
 }
-body {
-  overflow: overlay;
+::-webkit-scrollbar-track {
+  background: var(--one);
 }
-h1 {
-  color: #D3F2FF;
-}
-.sky {
-  z-index: -2;
+main {
   display: flex;
   min-height: 100vh;
-  position: relative;
+  color: var(--contrast);
+  background: var(--one);
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.home {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#000229, #001B8A, #0e52d1);
-  transition: 300ms;
 }
-.orb {
-  z-index: -1;
-  width: 500px;
-  height: 500px;
-  bottom: -250px;
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 1.2em .12em rgba(255, 255, 255, 0.7);
-  transition: 300ms;
+/* Polaroid.jsx */
+.pfp {
+  max-width: 350px;
+  background: radial-gradient(circle, var(--three), var(--two), var(--one), rgba(0, 0, 0, 0.75));
 }
 @media (max-width: 500px) {
-  .orb {
+  .pfp {
     width: 80vw;
-    height: 80vw;
-    bottom: -40vw;
   }
 }
-.sea {
-  min-height: 100vh;
-  background: linear-gradient(#5da3ff, #4583d3,#2e5691,#213363,#0d1930);
+.polaroid {
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: var(--two);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.75);
+}
+.polaroid ul {
+  display: flex;
+}
+.polaroid li {
+  margin: 0 .25em;
+  margin-top: 1em;
+}
+.polaroid a {
+  padding: 1em;
+  display: flex;
+  background: var(--three);
+  color: var(--aliceblue50);
+  border: 1px solid transparent;
+  transition: 300ms;
+}
+.polaroid a:hover {
+  color: aliceblue;
+  border: 1px solid var(--blue);
+  background: rgba(35, 90, 255, 0.2);
+  box-shadow: 0 0 .2em var(--blue), inset 0 0 .2em var(--blue);
+}
+.polaroid svg {
+  width: 25px;
+  height: 25px;
+}
+/* Logo.jsx */
+.loader {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  background: black;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+}
+.logo {
+  margin: 1.5em;
+  position: relative;
+}
+.star {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.star div {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  background: aliceblue;
+  box-shadow: 0 0 1em aliceblue;
+}
+.star div:nth-child(1) {
+  bottom: 0;
+  left: 15px;
+}
+.star div:nth-child(2) {
+  left: 0;
+  top: 35px;
+}
+.star div:nth-child(3) {
+  left: 45px;
+}
+.star div:nth-child(4) {
+  right: 0;
+  top: 35px;
+}
+.star div:nth-child(5) {
+  bottom: 0;
+  right: 15px;
+}
+.star + svg {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
 }

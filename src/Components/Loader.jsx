@@ -1,19 +1,21 @@
 import { useEffect } from "react";
-import "./Loader.css";
 import anime from "animejs/lib/anime.es.js";
+import Logo from "./Logo";
 
-function Loader() {
+function Loader({setLoading}) {
     useEffect(() => {
         animate();
     }, []);
 
     const animate = () => {
-        const loader = anime.timeline();
-        loader
+        const logo = anime.timeline({
+            complete: () => setLoading(false)
+        });
+        logo
         .add({
             targets: ".star div:nth-child(1)",
             opacity: 1,
-            delay: 300
+            delay: 400
         })
         .add({
             targets: ".star div:nth-child(2)",
@@ -32,27 +34,18 @@ function Loader() {
             opacity: 1
         }, "-=800")
         .add({
-            targets: ".one",
+            targets: ".logo path",
+            strokeDashoffset: [anime.setDashoffset, 0],
             easing: "easeInOutQuart",
-            strokeDashoffset: [anime.setDashoffset, 0]
+            duration: 1500
         }, "-=1000")
-        .add({
-            targets: ".two",
-            easing: "easeInOutQuart",
-            strokeDashoffset: [anime.setDashoffset, 0]
-        }, "-=600")
-        .add({
-            targets: ".three",
-            easing: "easeInOutQuart",
-            strokeDashoffset: [anime.setDashoffset, 0]
-        }, "-=600")
         .add({
             targets: ".star",
             easing: "easeInOutQuart",
-            scale: 0
-        })
+            opacity: 0
+        }, "-=700")
         .add({
-            targets: "svg",
+            targets: ".star + svg",
             easing: "easeInOutQuart",
             opacity: 0
         }, "-=1000")
@@ -60,24 +53,12 @@ function Loader() {
             targets: ".loader",
             easing: "easeInOutQuart",
             opacity: 0
-        }, "-=800")
+        })
     };
 
     return (
         <div className="loader">
-            <div className="star">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                <title>Logo</title>
-                <path className="one" d="M 20 95 l 30 -90" stroke="aliceblue"/>
-                <path className="two" d="M 50 5 l 30 90" stroke="aliceblue"/>
-                <path className="three" d="M 80 95 l -75 -55" stroke="aliceblue"/>
-            </svg>
+            <Logo/>
         </div>
     )
 }
