@@ -6,7 +6,7 @@ import pfp from "../assets/pfp.png";
 function Polaroid() {
     return (
         <div className="polaroid">
-            <img className="pfp" src={pfp}/>
+            <img src={pfp} alt="Alice's headshot."/>
             <ul>
                 <li>
                     <Link to="https://github.com/aliceweng" target="_blank" rel="noreferrer" title="GitHub" aria-label="github">
