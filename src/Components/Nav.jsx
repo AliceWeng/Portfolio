@@ -10,21 +10,15 @@ function Nav() {
                 <button className={`${open ? "close" : "open"} hamburger`} onClick={() => setOpen(!open)}></button>
             </div>
             <ul className={!open && "hidden"}>
-                <li>
-                    <Link>
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link>
-                        Experience
-                    </Link>
-                </li>
-                <li>
-                    <Link>
-                        Projects
-                    </Link>
-                </li>
+                <Link onClick={() => setOpen(false)}>
+                    <li>About</li>
+                </Link>
+                <Link onClick={() => setOpen(false)}>
+                    <li>Experience</li>
+                </Link>
+                <Link onClick={() => setOpen(false)}>
+                    <li>Projects</li>
+                </Link>
             </ul>
         </nav>
     )

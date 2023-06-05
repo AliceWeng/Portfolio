@@ -47,20 +47,21 @@ a {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 }
 .stickynote {
   margin: 1em;
-  max-width: 500px;
+  max-width: 750px;
   position: relative;
-  background: var(--two);
   box-shadow: 0 0 1em var(--black75);
 }
 .content {
   padding: 1em;
-  height: 405.5px;
   overflow-y: auto;
+  max-height: 500px;
   text-align: center;
+  background: var(--two);
 }
 .content img {
   width: 100%;
@@ -77,25 +78,49 @@ nav ul {
   transition: 300ms;
   position: absolute;
   text-align: center;
+  align-items: center;
+  background: #222d4e;
   flex-direction: column;
   justify-content: center;
-  backdrop-filter: blur(1em);
   border: 1px solid var(--blue);
-  background: rgba(35, 90, 255, 0.2);
   box-shadow: 0 0 .2em var(--blue), inset 0 0 .2em var(--blue);
 }
 .hidden {
   opacity: 0;
   visibility: hidden;
 }
-nav li {
-  padding: 1em;
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
 nav a {
-  color: var(--blue);
+  margin: 1em;
+  padding: 1em;
+  width: 200px;
   transition: 300ms;
+  color: var(--blue);
+  position: relative;
+  text-transform: uppercase;
+  text-shadow: 0 0 .1em var(--blue);
+}
+nav a::before, nav a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 300ms;
+  border: 1px solid var(--blue);
+  box-shadow: 0 0 .1em var(--blue), inset 0 0 .1em var(--blue);
+}
+nav a::before {
+  transform: translate(-3px, -3px);
+}
+nav a::after {
+  transform: translate(3px, 3px);
+}
+nav a:hover {
+  background: #152041;
+}
+nav a:hover::before, nav a:hover::after {
+  transform: translate(0);
 }
 .bar {
   display: flex;
@@ -152,20 +177,20 @@ nav a {
 }
 @media (max-width: 500px) {
   .polaroid img {
-    width: 80vw;
+    width: 100%;
   }
-
+  .stickynote {
+    aspect-ratio: 1 / 1;
+  }
 }
 .polaroid ul {
   display: flex;
 }
-.polaroid li {
-  margin: 0 .25em;
-  margin-top: 1em;
-}
 .polaroid a {
   padding: 1em;
   display: flex;
+  margin: 0 .25em;
+  margin-top: 1em;
   transition: 300ms;
   background: var(--three);
   color: var(--aliceblue25);
