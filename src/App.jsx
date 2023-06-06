@@ -5,11 +5,9 @@ import Loader from "./Components/Loader";
 import Home from "./Components/Home";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
   return (
       <BrowserRouter>
-        {loading && <Loader setLoading={setLoading}/>}
+        <Loader/>
         <Home/> 
       </BrowserRouter>
   )
