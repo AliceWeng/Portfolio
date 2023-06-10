@@ -3,6 +3,7 @@
 * [animejs](https://www.npmjs.com/package/animejs)
 * [react-icons](https://www.npmjs.com/package/react-icons)
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+* [react-router-hash-link](https://www.npmjs.com/package/react-router-hash-link);
 
 ## Tools
 * I used [Brittany Chiang](https://github.com/bchiang7)'s [portfolio](https://v4.brittanychiang.com) for inspiration.

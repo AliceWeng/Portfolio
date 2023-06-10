@@ -11,8 +11,7 @@
   --one: #111111;
   --two: #222222;
   --three: #333333;
-  --aliceblue25: rgba(240, 248, 255, 0.25);
-  --black75: rgba(0, 0, 0, 0.75);
+  --shadow: rgba(0, 0, 0, 0.75);
 }
 ::-webkit-scrollbar {
   width: 18px;
@@ -20,7 +19,7 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 1em;
   border: 5px solid var(--two);
-  background: var(--aliceblue25);
+  background: rgba(240, 248, 255, 0.25);
 }
 body::-webkit-scrollbar-thumb {
   border: 5px solid var(--one);
@@ -28,7 +27,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
   background: var(--one);
 }
-main {
+.easel {
   display: flex;
   min-height: 100vh;
   color: aliceblue;
@@ -36,42 +35,65 @@ main {
   justify-content: center;
   font-family: "Inter", sans-serif;
 }
+h2 {
+  padding: .5em 0;
+  font-family: "Roboto Mono";
+}
+h2::before {
+  color: var(--blue);
+}
+#about h2::before {
+  content: "01. ";
+}
+#experience h2::before {
+  content: "02. ";
+}
+#projects h2::before {
+  content: "03. ";
+}
 ul {
   list-style: none;
 }
 a {
-  color: var(--blue);
   text-decoration: none;
 }
-.home {
+.canvas {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
-.me {
+header {
   margin: 1em;
-  display: flex;
-  flex-direction: column;
 }
-.stickynote {
+main {
   margin: 1em;
   position: relative;
-  box-shadow: 0 0 1em var(--black75);
+  box-shadow: 0 0 1em var(--shadow);
 }
 .content {
-  padding: 1em;
-  overflow-y: auto;
-  max-width: 750px;
   max-height: 500px;
-  text-align: center;
+  max-width: 750px;
+  padding: 0 1em;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: var(--two);
+}
+.content p {
+  padding: .5em 0;
 }
 .content img {
   width: 100%;
-  margin-top: 1em;
-  box-shadow: 0 0 1em var(--black75);
+  margin: .5em 0;
+  box-shadow: 0 0 1em var(--shadow);
+}
+.content a {
+  font-weight: bold;
+  color: var(--blue);
+}
+#projects li {
+  padding: .5em 0;
 }
 /* Nav.jsx */
 nav ul {
@@ -79,10 +101,10 @@ nav ul {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   display: flex;
   transition: 300ms;
   position: absolute;
-  text-align: center;
   align-items: center;
   background: #222d4e;
   flex-direction: column;
@@ -98,9 +120,11 @@ nav a {
   margin: 1em;
   padding: 1em;
   width: 200px;
+  display: flex;
   transition: 300ms;
   color: var(--blue);
   position: relative;
+  justify-content: center;
   text-transform: uppercase;
   text-shadow: 0 0 .1em var(--blue);
 }
@@ -133,7 +157,7 @@ nav a:hover::before, nav a:hover::after {
   justify-content: flex-end;
 }
 .hamburger {
-  z-index: 1;
+  z-index: 2;
   margin: 1em;
   width: 25px;
   height: 25px;
@@ -169,32 +193,33 @@ nav a:hover::before, nav a:hover::after {
 /* Name.jsx */
 .name {
   fill: none;
-  z-index: 1;
   stroke-width: 1.5;
   stroke: var(--blue);
-  margin-bottom: -2.2em;
+  margin-bottom: -2.5em;
   filter: drop-shadow(0 0 .2em var(--blue));
 }
 /* Polaroid.jsx */
 .polaroid {
   padding: 1em;
   display: flex;
-  position: relative;
   align-items: center;
   flex-direction: column;
   background: var(--two);
-  box-shadow: 0 0 1em var(--black75);
+  box-shadow: 0 0 1em var(--shadow);
 }
 .polaroid img {
   width: 350px;
-  background: radial-gradient(circle, var(--three), var(--two), var(--one), var(--black75));
+  background: radial-gradient(circle, var(--three), var(--two), var(--one), var(--shadow));
 }
 @media (max-width: 500px) {
   .polaroid img {
     width: 100%;
   }
-  .stickynote {
-    aspect-ratio: 1 / 1;
+  header, main {
+    min-height: calc(100vh - 2em);
+  }
+  .content {
+    max-height: calc(100% - 50px);
   }
 }
 .polaroid ul {
@@ -207,8 +232,8 @@ nav a:hover::before, nav a:hover::after {
   margin-top: 1em;
   transition: 300ms;
   background: var(--three);
-  color: var(--aliceblue25);
   border: 1px solid transparent;
+  color: rgba(240, 248, 255, 0.25);
 }
 .polaroid a:hover {
   color: aliceblue;
@@ -229,9 +254,6 @@ nav a:hover::before, nav a:hover::after {
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  display: flex;
   position: fixed;
   background: black;
-  align-items: center;
-  justify-content: center;
 }

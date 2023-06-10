@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import pfp from "../assets/pfp.png";
+import pfp from "../images/pfp.png";
 
 function Polaroid() {
     return (
         <div className="polaroid">
-            <img src={pfp} alt="Alice's headshot."/>
+            <img src={pfp} alt="Alice's profile picture."/>
             <ul>
                 <li>
                     <Link to="https://github.com/aliceweng" target="_blank" rel="noreferrer" title="GitHub" aria-label="github">

@@ -3,7 +3,7 @@ import anime from "animejs/lib/anime.es.js";
 
 function Loader() {
     useEffect(() => {
-        animate();
+       animate();
     }, []);
 
     const animate = () => {
@@ -16,7 +16,7 @@ function Loader() {
             zIndex: -1
         })
         .add({
-            targets: "#name path",
+            targets: ".name path",
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: "easeInOutSine",
             duration: 5000

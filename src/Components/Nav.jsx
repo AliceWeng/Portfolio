@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 function Nav() {
     const [open, setOpen] = useState(false);
@@ -7,18 +7,18 @@ function Nav() {
     return (
         <nav>
             <div className="bar">
-                <button className={`${open ? "close" : "open"} hamburger`} onClick={() => setOpen(!open)}></button>
+                <button aria-label="" className={`${open ? "close" : "open"} hamburger`} onClick={() => setOpen(!open)}></button>
             </div>
             <ul className={!open && "hidden"}>
-                <Link onClick={() => setOpen(false)}>
-                    <li>About</li>
-                </Link>
-                <Link onClick={() => setOpen(false)}>
-                    <li>Experience</li>
-                </Link>
-                <Link onClick={() => setOpen(false)}>
-                    <li>Projects</li>
-                </Link>
+                <li>
+                    <HashLink to="#about" onClick={() => setOpen(!open)} smooth>About</HashLink>
+                </li>
+                <li>
+                    <HashLink to="#experience" onClick={() => setOpen(!open)} smooth>Experience</HashLink>
+                </li>
+                <li>
+                    <HashLink to="#projects" onClick={() => setOpen(!open)} smooth>Projects</HashLink>
+                </li>
             </ul>
         </nav>
     )
