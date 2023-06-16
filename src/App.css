@@ -18,8 +18,11 @@
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 1em;
-  border: 5px solid var(--two);
+  border: 5px solid #1e2236;
   background: rgba(240, 248, 255, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(240, 248, 255, 0.5);
 }
 body::-webkit-scrollbar-thumb {
   border: 5px solid var(--one);
@@ -36,8 +39,7 @@ body::-webkit-scrollbar-track {
   font-family: "Inter", sans-serif;
 }
 h2 {
-  padding: .5em 0;
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
 }
 h2::before {
   color: var(--blue);
@@ -75,10 +77,10 @@ main {
 .content {
   max-height: 500px;
   max-width: 750px;
-  padding: 0 1em;
+  color: #bfcff0;
   overflow-y: auto;
   overflow-x: hidden;
-  background: var(--two);
+  background: #1e2236;
 }
 .content p {
   padding: .5em 0;
@@ -86,14 +88,37 @@ main {
 .content img {
   width: 100%;
   margin: .5em 0;
-  box-shadow: 0 0 1em var(--shadow);
 }
 .content a {
+  color: #95b3ff;
   font-weight: bold;
-  color: var(--blue);
 }
-#projects li {
-  padding: .5em 0;
+section {
+  padding: 2em;
+  padding-bottom: 0;
+}
+/* Projects.jsx */
+h3 {
+  font-size: 1em;
+  display: inline-block;
+}
+.milestone {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: .5em;
+  background: #242b47;
+}
+.techstack {
+  display: flex;
+}
+.techstack li {
+  font-size: 12px;
+  padding: .5em 1em;
+  font-weight: bold;
+  margin-right: .5em;
+  border-radius: 2em;
+  letter-spacing: 1px;
+  background: #2e3b63;
 }
 /* Nav.jsx */
 nav ul {
@@ -106,7 +131,7 @@ nav ul {
   transition: 300ms;
   position: absolute;
   align-items: center;
-  background: #222d4e;
+  background: #111522;
   flex-direction: column;
   justify-content: center;
   border: 1px solid var(--blue);
@@ -122,11 +147,13 @@ nav a {
   width: 200px;
   display: flex;
   transition: 300ms;
-  color: var(--blue);
   position: relative;
+  letter-spacing: 2px;
   justify-content: center;
   text-transform: uppercase;
+  color: rgba(240, 248, 255, 0.5);
   text-shadow: 0 0 .1em var(--blue);
+  font-family: "Roboto Mono", monospace;
 }
 nav a::before, nav a::after {
   content: "";
@@ -146,14 +173,15 @@ nav a::after {
   transform: translate(3px, 3px);
 }
 nav a:hover {
-  background: #152041;
+  color: aliceblue;
+  background: rgba(49, 100, 255, 0.2);
 }
 nav a:hover::before, nav a:hover::after {
   transform: translate(0);
 }
 .bar {
   display: flex;
-  background: var(--three);
+  background: #293769;
   justify-content: flex-end;
 }
 .hamburger {
@@ -215,11 +243,8 @@ nav a:hover::before, nav a:hover::after {
   .polaroid img {
     width: 100%;
   }
-  header, main {
-    min-height: calc(100vh - 2em);
-  }
   .content {
-    max-height: calc(100% - 50px);
+    aspect-ratio: 1/1;
   }
 }
 .polaroid ul {
@@ -233,7 +258,7 @@ nav a:hover::before, nav a:hover::after {
   transition: 300ms;
   background: var(--three);
   border: 1px solid transparent;
-  color: rgba(240, 248, 255, 0.25);
+  color: rgba(240, 248, 255, 0.5);
 }
 .polaroid a:hover {
   color: aliceblue;
@@ -244,6 +269,13 @@ nav a:hover::before, nav a:hover::after {
 .polaroid svg {
   width: 25px;
   height: 25px;
+}
+.screenreader {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  clip-path: inset(1px 1px);
 }
 /* Loader.jsx */
 .loader {
