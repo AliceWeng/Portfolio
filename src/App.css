@@ -110,15 +110,17 @@ h3 {
 }
 .techstack {
   display: flex;
+  flex-wrap: wrap;
 }
 .techstack li {
   font-size: 12px;
+  margin-top: .6em;
   padding: .5em 1em;
   font-weight: bold;
   margin-right: .5em;
   border-radius: 2em;
   letter-spacing: 1px;
-  background: #2e3b63;
+  background: #2c385e;
 }
 /* Nav.jsx */
 nav ul {
@@ -219,11 +221,13 @@ nav a:hover::before, nav a:hover::after {
   transform: rotate(-45deg);
 }
 /* Name.jsx */
+h1 {
+  margin-bottom: -1.4em;
+}
 .name {
   fill: none;
   stroke-width: 1.5;
   stroke: var(--blue);
-  margin-bottom: -2.5em;
   filter: drop-shadow(0 0 .2em var(--blue));
 }
 /* Polaroid.jsx */
@@ -270,11 +274,12 @@ nav a:hover::before, nav a:hover::after {
   width: 25px;
   height: 25px;
 }
-.screenreader {
+.sr-only {
   width: 1px;
   height: 1px;
   overflow: hidden;
   position: absolute;
+  color: aliceblue;
   clip-path: inset(1px 1px);
 }
 /* Loader.jsx */
