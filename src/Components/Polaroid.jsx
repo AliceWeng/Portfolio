@@ -4,10 +4,10 @@ import pfp from "../images/pfp.png";
 function Polaroid() {
     return (
         <div className="polaroid">
-            <img src={pfp} alt="Alice's profile picture."/>
+            <img src={pfp} alt="profile picture"/>
             <ul aria-label="social media">
                 <li>
-                    <Link to="https://github.com/aliceweng" target="_blank" rel="noreferrer">
+                    <Link to="https://github.com/aliceweng" target="_blank" rel="noopener noreferrer">
                         <span className="sr-only">GitHub</span>
                         {/* FaGithub from react-icons/fa */}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
@@ -16,7 +16,7 @@ function Polaroid() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="https://www.linkedin.com/in/alice-weng" target="_blank" rel="noreferrer">
+                    <Link to="https://www.linkedin.com/in/alice-weng" target="_blank" rel="noopener noreferrer">
                         <span className="sr-only">LinkedIn</span>
                         {/* FaLinkedinIn from react-icons/fa */}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
@@ -25,7 +25,7 @@ function Polaroid() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="mailto:alicewengs@gmail.com" target="_blank" rel="noreferrer">
+                    <Link to="mailto:alicewengs@gmail.com" target="_blank" rel="noopener noreferrer">
                         <span className="sr-only">Email</span>
                         {/* SiGmail from react-icons/si */}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
