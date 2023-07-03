@@ -20,16 +20,20 @@ body {
 ul {
   list-style: none;
 }
-a, h1, h2, h3 {
+h1, h2, h3 {
   font-size: 1em;
-  color: var(--ice);
-  transition: 300ms;
-  letter-spacing: 2px;
   font-weight: lighter;
-  text-decoration: none;
+}
+a, h1, h2, h3 {
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 0 .1em var(--ice);
   font-family: "Roboto Mono", monospace;
+}
+a {
+  color: var(--ice);
+  transition: 300ms;
+  text-decoration: none;
 }
 a:hover {
   color: aliceblue;
@@ -52,6 +56,7 @@ header {
 main {
   width: 700px;
   padding: 1em;
+  padding-top: 0;
 }
 @media (min-width: 1150px) {
   header {
@@ -60,15 +65,15 @@ main {
     max-height: 100vh;
   }
   main {
-    padding-top: calc(50px + 1em);
+    padding-top: 50px;
   }
 }
-@media (max-height: 625px) {
+@media (max-height: 645px) {
   header {
     justify-content: flex-start;
   }
 }
-/* Nav.jsx */
+/* nav */
 nav {
   top: 0;
   left: 0;
@@ -82,7 +87,6 @@ nav {
 }
 nav ul {
   display: flex;
-  transition: 300ms;
 }
 nav a {
   padding: 1em;
@@ -97,6 +101,7 @@ nav a {
     right: 0;
     bottom: 0;
     position: fixed;
+    transition: 300ms;
     align-items: center;
     background: var(--two);
     flex-direction: column;
@@ -179,13 +184,11 @@ nav a {
     display: none;
   }
 }
-h1 {
-  margin-bottom: 1em;
-}
-/* Polaroid.jsx */
+/* header */
 .polaroid {
   padding: 1em;
   display: flex;
+  margin-top: 1em;
   align-items: center;
   flex-direction: column;
   background: var(--two);
@@ -205,8 +208,6 @@ h1 {
 .polaroid a {
   padding: 1em;
   display: flex;
-  color: var(--ice);
-  transition: 300ms;
   background: var(--three);
   border: 1px solid transparent;
 }
@@ -228,14 +229,20 @@ h1 {
   color: aliceblue;
   clip-path: inset(1px 1px);
 }
+/* main */
 section {
   margin-top: 1em;
   scroll-margin-top: 4em;
 }
 h2 {
   display: flex;
+  text-align: center;
   align-items: center;
-  white-space: nowrap;
+}
+@media (min-width: 400px) {
+  h2 {
+    white-space: nowrap;
+  }
 }
 h2::before, h2::after {
   content: "";
@@ -249,6 +256,17 @@ h2::before {
 h2::after {
   margin-left: 1em;
 }
+h3 {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  background: var(--two);
+  justify-content: space-between;
+}
+h3 span {
+  margin-left: 1em;
+  text-align: right;
+}
 .container {
   margin-top: 1em;
   border: 1px solid var(--two);
@@ -259,14 +277,7 @@ h2::after {
 #experience img {
   width: 100%;
   height: auto;
-  padding: 1em;
   margin-top: 1em;
-  background: var(--two);
-}
-h3 {
-  padding: 1em;
-  font-size: 1em;
-  background: var(--two);
 }
 .stack {
   display: flex;

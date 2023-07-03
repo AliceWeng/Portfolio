@@ -4,7 +4,8 @@ import pfp from "../images/pfp.png";
 function Polaroid() {
     return (
         <div className="polaroid">
-            <img src={pfp} alt="profile picture"/>
+            {/* I commissioned this art from Etsy, but I can't find the artist anymore. */}
+            <img src={pfp} alt="profile picture" width="386" height="399.39"/>
             <ul aria-label="social media">
                 <li>
                     <Link to="https://github.com/aliceweng" target="_blank" rel="noopener noreferrer">

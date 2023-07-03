@@ -14,7 +14,7 @@ function App() {
           <header>
             <Nav/>
             <h1>
-              <Link to="/">Alice Weng</Link>
+              <Link to="/">Alice Weng</Link><br/> is currently open to work.
             </h1>
             <Polaroid/>
           </header>

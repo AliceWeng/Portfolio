@@ -8,15 +8,16 @@ function Experience() {
             <div className="container">
                 <h3>
                     <Link to="https://digitalskills.unlv.edu/software-development-bootcamp" target="_blank" rel="noopener noreferrer">
-                        ThriveDX <span aria-label="and">&&</span> University of Las Vegas
+                        ThriveDX, University of Las Vegas
                     </Link>
+                    <span aria-label="2022 to 2023">2022 - 2023</span>
                 </h3>
                 <p>
-                    I recently graduated from a software development bootcamp.
-                    
+                    I recently graduated from a software development bootcamp after 10 months spent learning a wide assortment of technologies and languages.
+                    During my time there, I made 3 milestone projects which can be found down below.
                 </p>
             </div>
-            <img src={certificate} alt="certificate of completion"/>
+            <img src={certificate} alt="certificate of completion" width="668" height="516.41"/>
         </section>
     )
 }
